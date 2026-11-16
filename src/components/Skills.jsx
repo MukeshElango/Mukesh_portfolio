@@ -1,38 +1,110 @@
+import {
+  Activity,
+  ChartNoAxesCombined,
+  Code2,
+  Database,
+  FileSpreadsheet,
+  Workflow,
+  Wrench,
+} from "lucide-react";
 import Reveal from "./Reveal";
 import GlassCard from "./GlassCard";
+import TechnologyIcon from "./TechnologyIcon";
 
 const SKILLS = [
   {
-    cat: "Languages",
-    items: ["Python", "JavaScript (Basic)", "SQL", "HTML5", "CSS3"],
-  },
-  {
-    cat: "Frontend",
-    items: ["React.js (Basic)", "AI-Assisted Development", "HTML5", "CSS3", "Responsive Design"],
-  },
-  {
-    cat: "Backend",
-    items: ["python","Django (Basic)", "Django REST", "REST APIs"],
-  },
-  {
-    cat: "Databases",
-    items: ["PostgreSQL", "MongoDB", "MySQL"],
-  },
-  {
-    cat: "Data & Analytics",
+    cat: "SQL & Databases",
+    icon: Database,
     items: [
-      "Pandas",
-      "NumPy",
-      "Matplotlib",
+      "SQL",
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "SQLite",
+      "JOINs",
+      "CTEs",
+      "Window Functions",
+      "CASE Statements",
+      "GROUP BY / HAVING",
+    ],
+  },
+  {
+    cat: "Python & Libraries",
+    icon: Code2,
+    items: ["Python", "Pandas", "NumPy", "Matplotlib"],
+  },
+  {
+    cat: "Data Analytics & Data Science",
+    icon: Activity,
+    items: [
+      "Exploratory Data Analysis (EDA)",
+      "Data Cleaning",
+      "Data Preprocessing",
       "Statistical Analysis",
       "Data Visualization",
-      "EDA",
+      "Business Analytics",
+      "KPI Reporting",
+      "Data Interpretation",
       "Recommendation Systems",
     ],
   },
   {
-    cat: "Tools",
-    items: ["Git", "GitHub", "VS Code", "Tableau", "Power BI", "Jupyter", "Figma","Excel","MS Word"],
+    cat: "Data Engineering",
+    icon: Workflow,
+    items: [
+      "ETL Development",
+      "Data Pipelines",
+      "Data Modeling",
+      "Data Transformation",
+      "REST API Integration",
+      "Spotify Web API",
+      "Requests",
+      "JSON Processing",
+    ],
+  },
+  {
+    cat: "Power BI & Business Intelligence",
+    icon: ChartNoAxesCombined,
+    items: [
+      "Power BI",
+      "DAX",
+      "Dashboard Development",
+      "KPI Development",
+      "Interactive Reporting",
+      "Tableau",
+    ],
+  },
+  {
+    cat: "Excel & Reporting",
+    icon: FileSpreadsheet,
+    items: ["Microsoft Excel", "Pivot Tables", "Power Query"],
+  },
+  {
+    cat: "Web Development",
+    icon: Code2,
+    items: [
+      "React.js (Basic)",
+      "JavaScript (Basic)",
+      "Node.js",
+      "Express.js",
+      "Django (Basic)",
+      "Django REST Framework",
+      "HTML5",
+      "CSS3",
+      "Responsive Design",
+    ],
+  },
+  {
+    cat: "Tools & Workflow",
+    icon: Wrench,
+    items: [
+      "Git",
+      "GitHub",
+      "VS Code",
+      "Jupyter Notebook",
+      "Figma",
+      "AI-Assisted Development",
+    ],
   },
 ];
 
@@ -48,23 +120,34 @@ export default function Skills() {
               Capabilities
             </span>
           </div>
-          <h2 className="font-display text-4xl sm:text-5xl font-light text-bone mb-16">
+          <h2 className="font-display text-4xl sm:text-5xl font-light text-bone mb-4">
             Technical{" "}
             <span className="italic font-semibold text-gradient">Skills</span>
           </h2>
+          <p className="mb-14 max-w-2xl text-sm leading-6 text-mist sm:text-base">
+            Core capabilities across SQL, Python, analytics, data pipelines,
+            business intelligence, and software development, grounded in the
+            projects and experience shown in this portfolio.
+          </p>
         </Reveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {SKILLS.map(({ cat, items }, i) => (
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {SKILLS.map(({ cat, icon: CategoryIcon, items }, i) => (
             <Reveal key={cat} delay={i * 0.07}>
-              <GlassCard className="p-6 h-full hover:bg-white/[0.05]">
-                <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-ember mb-4">
-                  {cat}
+              <GlassCard className="skill-panel h-full p-6 hover:bg-white/[0.05]">
+                <div className="mb-4 flex items-center justify-between gap-4">
+                  <div className="font-mono text-[11px] tracking-[0.2em] uppercase text-ember">
+                    {cat}
+                  </div>
+                  <span className="skill-icon-orbit" aria-hidden="true">
+                    <CategoryIcon size={16} strokeWidth={1.6} />
+                  </span>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {items.map((s) => (
-                    <span key={s} className="web-chip">
-                      {s}
+                  {items.map((name) => (
+                    <span key={name} className="web-chip skill-chip">
+                      <TechnologyIcon name={name} className="skill-chip-mark" />
+                      {name}
                     </span>
                   ))}
                 </div>

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 
 export default function Reveal({
   children,
@@ -7,12 +7,14 @@ export default function Reveal({
   className = "",
   once = true,
 }) {
+  const reduceMotion = useReducedMotion();
+
   return (
     <motion.div
-      initial={{ opacity: 0, y, rotate: 1.2 }}
-      whileInView={{ opacity: 1, y: 0, rotate: 0 }}
+      initial={{ y: reduceMotion ? 0 : y, rotate: reduceMotion ? 0 : 0.8 }}
+      whileInView={{ y: 0, rotate: 0 }}
       viewport={{ once, margin: "-80px" }}
-      transition={{ duration: 0.75, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: reduceMotion ? 0.01 : 0.75, delay: reduceMotion ? 0 : delay, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       {children}

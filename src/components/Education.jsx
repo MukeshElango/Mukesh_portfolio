@@ -20,7 +20,7 @@ export default function Education() {
         <Reveal>
           <div className="flex flex-wrap items-center gap-3 mb-4">
             <span className="h-px w-10 bg-ember" />
-            <span className="font-mono section-number">05</span>
+            <span className="font-mono section-number">06</span>
             <span className="font-mono text-[11px] tracking-[0.25em] uppercase text-mist/75">
               Background
             </span>
@@ -30,15 +30,13 @@ export default function Education() {
           </h2>
         </Reveal>
 
-        <div className="relative mb-14">
+        <div className="timeline-track relative mb-14">
+          <span className="timeline-progress" aria-hidden="true" />
           {EDUCATION.map((item, i) => (
             <Reveal key={item.degree} delay={i * 0.1}>
               <div className="relative flex gap-5 pb-10 last:pb-0">
                 <div className="relative flex flex-col items-center w-3 flex-shrink-0">
                   <span className="mt-1.5 w-3 h-3 rounded-full bg-ember shadow-[0_0_16px_rgba(232,35,43,0.35)] flex-shrink-0" />
-                  {i !== EDUCATION.length - 1 && (
-                    <span className="w-px flex-1 bg-ember/20 mt-2" />
-                  )}
                 </div>
 
                 <div className="pb-2">

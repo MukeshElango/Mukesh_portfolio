@@ -7,22 +7,25 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: "#08080d",
-        background: "#08080d",
-        surface: "#101018",
-        "surface-dark": "#16161f",
-        ember: "#e8232b",
-        "ember-soft": "#ff4d55",
-        bone: "#e9e9ef",
-        mist: "#84849a",
+        ink: "#08090D",
+        background: "#08090D",
+        surface: "#11131A",
+        "surface-dark": "#171A23",
+        ember: "#FF4058",
+        "ember-soft": "#FF7180",
+        bone: "#F7F9FF",
+        mist: "#E0E6F0",
+        signal: "#4B9EFF",
+        mint: "#D9E3F2",
       },
       fontFamily: {
-        display: ["'Syne'", "Space Grotesk", "sans-serif"],
+        display: ["'Space Grotesk'", "sans-serif"],
+        hero: ["'Barlow Condensed'", "sans-serif"],
         sans: ["'Inter'", "sans-serif"],
-        mono: ["'JetBrains Mono'", "monospace"],
+        mono: ["'IBM Plex Mono'", "monospace"],
       },
       boxShadow: {
-        glow: "0 20px 80px rgba(232, 35, 43, 0.14)",
+        glow: "0 20px 80px rgba(230, 36, 41, 0.16)",
       },
       backdropBlur: {
         xs: "2px",
@@ -48,4 +51,3 @@ export default {
   },
   plugins: [],
 }
-
